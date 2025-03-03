@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohammad Aslam - mohammadaslam.dev</title>
+  <!-- Updated CSP: allowing images from cdn.jsdelivr.net and img.icons8.com -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://img.icons8.com *.googletagmanager.com *.googleusercontent.com *.googleapis.com *.google-analytics.com; img-src 'self' https://cdn.jsdelivr.net https://img.icons8.com; connect-src 'self' *.go[...]" />
+  <meta name="description" content="Mohammad Aslam is a 2nd-year BTech student in Computer Science Engineering at RV Institute of Technology, Guntur. He's passionate about leveraging technology to drive innovation." />
+  <meta name="author" content="Mohammad Aslam">
+  <meta name="generator" content="Eleventy">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:title" content="Mohammad Aslam">
+  <meta property="og:description" content="Mohammad Aslam is a 2nd-year BTech student in Computer Science Engineering at RV Institute of Technology, Guntur. He's passionate about leveraging technology to drive innovation." />
+  <meta property="og:type" content="article">
+  <!-- Google Fonts for Lato -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --text-color: #e0e0e0;
+      --link-color: #bb86fc;
+      --link-hover-color: #3700b3;
+      --hover-border-color: #ff4081;
+      --hover-bg-color: rgba(255, 64, 129, 0.2);
+      font-family: Lato, sans-serif;
+    }
+    ::selection {
+      color: #121212;
+      background-color: var(--text-color);
+    }
+    body, html {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      color: var(--text-color);
+      scroll-behavior: smooth;
+    }
+    body {
+      max-width: 100vw;
+      margin: auto;
+      position: relative;
+      cursor: none; /* Hide default cursor */
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    /* Navigation Styles (original) */
+    nav.main-nav {
+      z-index: 100;
+      height: 60px;
+      display: flex;
+      align-content: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border: 5px black;
+      border-radius: 40%;
+      box-shadow: 5px 5px 5px rgba(0, 0, 255, 0.436);
+    }
+    nav.main-nav ul {
+      display: flex;
+      align-items: center;
+    }
+    nav.main-nav li {
+      margin-right: 20px;
+    }
+    nav.main-nav a {
+      color: var(--text-color);
+      text-decoration: none;
+    }
+    nav.main-nav a:hover {
+      color: var(--link-color);
+      text-shadow: 5px 5px 5px #ff4081;
+    }
+    /* Background Video */
+    .background-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    /* Content Wrapper */
+    .content {
+      position: relative;
+      z-index: 1;
+      overflow-y: auto;
+      height: 100vh;
+      padding-bottom: 40px;
+    }
+    /* Header Section */
+    .header {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--text-color);
+      text-align: center;
+    }
+    .header .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .header h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+      text-shadow: 5px 5px 5px rgba(0, 0, 255, 0.592);
+    }
+    /* Typing Effect Style */
+    .header h2 {
+      font-size: 24px;
+      margin: 10px 0;
+      color: var(--link-color);
+      min-height: 30px;
+    }
+    .header p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .header a {
+      background-color: var(--link-color);
+      color: #121212;
+      border-radius: 5px;
+      padding: 10px 20px;
+      text-decoration: none;
+    }
+    .header a:hover {
+      background-color: var(--link-hover-color);
+    }
+    /* Section Styles (About, Skills, Projects, Contact) */
+    .about, .skills, .projects, .contact {
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: var(--text-color);
+      margin: 20px;
+      border-radius: 8px;
+    }
+    .about h2, .skills h2, .projects h2, .contact h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .about p, .skills p, .projects p, .contact p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    /* Skills Section Specific */
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .skill-category {
+      flex: 1;
+      min-width: 250px;
+    }
+    .skill-category h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    /* New Skill Items with Logos */
+    .skill-category ul {
+      padding: 0;
+    }
+    .skill-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+      transition: transform 0.3s ease;
+      padding: 5px;
+    }
+    .skill-item:hover {
+      transform: scale(1.05);
+    }
+    .skill-logo {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+    .skill-item:hover .skill-logo {
+      transform: rotate(10deg) scale(1.1);
+    }
+    /* Projects Section Specific */
+    .project-item {
+      margin-bottom: 30px;
+    }
+    .project-item h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: var(--link-color);
+    }
+    .project-item p {
+      margin-bottom: 8px;
+    }
+    .project-item a {
+      text-decoration: none;
+      color: var(--link-color);
+      font-weight: bold;
+    }
+    .project-item a:hover {
+      color: var(--link-hover-color);
+    }
+    /* Contact Form Styling */
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: auto;
+    }
+    .contact form input, .contact form textarea {
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+    }
+    .contact form input[type="submit"] {
+      background-color: var(--link-color);
+      color: #121212;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .contact form input[type="submit"]:hover {
+      background-color: var(--link-hover-color);
+    }
+    /* Footer */
+    footer {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: var(--text-color);
+      padding: 10px;
+      text-align: center;
+    }
+    /* Custom Cursor Styles */
+    .custom-cursor {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--link-color);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1),
+                  border-color 0.3s ease, background-color 0.3s ease;
+      z-index: 9999;
+      box-shadow: 0 0 8px rgba(187, 134, 252, 0.5);
+      background-color: transparent;
+    }
+    .custom-cursor::before {
+      content: "";
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background-color: var(--link-color);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: background-color 0.3s ease;
+    }
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      body {
+        max-width: 90vw;
+      }
+      nav.main-nav ul {
+        flex-direction: column;
+      }
+      nav.main-nav li {
+        margin-bottom: 10px;
+      }
+      .header h1 {
+        font-size: 28px;
+      }
+      .header p {
+        font-size: 16px;
+      }
+      .header a {
+        padding: 8px 16px;
+      }
+      .about, .skills, .projects, .contact {
+        padding: 10px;
+      }
+    }
+    /* Original .pic Styles */
+    .pic {
+      position: absolute;
+      top: 340px;
+      right: 200px;
+      border: 1px solid #3700b3;
+      z-index: 2;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .pic:hover {
+      transform: scale(1.5);
+      box-shadow: 10px 10px 10px rgba(225, 39, 39, 0.854);
+      cursor: pointer;
+      z-index: 3;
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Video -->
+  <video class="background-video" autoplay muted loop poster="../Pictures/logo.png">
+    <source src="./3141210-uhd_3840_2160_25fps.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <ul>
+      <li><a href="https://www.linkedin.com/in/mohammad-aslam-713017251" target="_blank">LinkedIn</a></li>
+      <li><a href="https://github.com/Xcaptainind" target="_blank">GitHub</a></li>
+      <li><a href="https://www.instagram.com/mr__official__404/" target="_blank">Instagram</a></li>
+      <li><a href="https://www.youtube.com/@MohammadAslam-ne2mk" target="_blank">Youtube</a></li>
+      <li><a href="https://discord.com/channels/1097890439404736602/1097987606920298507" target="_blank">Discord</a></li>
+    </ul>
+  </nav>
+  
+  <!-- Custom Cursor -->
+  <div class="custom-cursor"></div>
+  
+  <!-- Main Content -->
+  <div class="content">
+    <!-- Header Section -->
+    <header class="header">
+      <div class="container">
+        <h1>Mohammad Aslam</h1>
+        <h2 id="typing" style="color: aliceblue; text-shadow: 5px 5px 5px rgba(0, 0, 255, 0.516);"></h2>
+        <p>2nd-year BTech student in Computer Science Engineering at RV Institute of Technology, Guntur</p>
+        <div class="pic">
+          <img height="100px" width="200px" src="./WhatsApp Image 2025-03-01 at 20.13.41_7165bec0.jpg" alt="Mohammad Aslam">
+        </div>
+        <p>Passionate about leveraging technology to drive innovation</p>
+        <a href="https://www.linkedin.com/in/mohammad-aslam-713017251" target="_blank">Connect with me on LinkedIn</a>
+      </div>
+    </header>
+    
+    <!-- About Section -->
+    <section class="about">
+      <h2>About me</h2>
+      <p>I'm a 2nd-year BTech student in Computer Science Engineering at RV Institute of Technology, Guntur. I'm passionate about leveraging technology to drive innovation and have built a strong foundation in both technical and soft skills.</p>
+    </section>
+    
+    <!-- Skills Section (Updated with Online Logos and Hover Effects) -->
+    <section class="skills">
+      <h2>Skills</h2>
+      <div class="skills-list">
+        <div class="skill-category">
+          <h3>Technical Skills</h3>
+          <ul>
+            <li class="skill-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python Logo" class="skill-logo">
+              Python (Programming Language)
+            </li>
+            <li class="skill-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java Logo" class="skill-logo">
+              Java
+            </li>
+            <li class="skill-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript Logo" class="skill-logo">
+              JavaScript
+            </li>
+            <li class="skill-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL Logo" class="skill-logo">
+              SQL
+            </li>
+            <li class="skill-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML Logo" class="skill-logo">
+              HTML
+            </li>
+            <li class="skill-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS Logo" class="skill-logo">
+              CSS
+            </li>
+            <li class="skill-item">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux Logo" class="skill-logo">
+              Linux Fundamentals
+            </li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Professional & Soft Skills</h3>
+          <ul>
+            <li class="skill-item">
+              <img src="https://img.icons8.com/fluency/48/000000/share.png" alt="Social Media" class="skill-logo">
+              Social Media
+            </li>
+            <li class="skill-item">
+              <img src="https://img.icons8.com/fluency/48/000000/pen.png" alt="Writing" class="skill-logo">
+              Writing
+            </li>
+            <li class="skill-item">
+              <img src="https://img.icons8.com/fluency/48/000000/synchronize.png" alt="Easily Adaptable" class="skill-logo">
+              Easily Adaptable
+            </li>
+            <li class="skill-item">
+              <img src="https://img.icons8.com/fluency/48/000000/handshake.png" alt="Written Communication" class="skill-logo">
+              Written Communication
+            </li>
+            <li class="skill-item">
+              <img src="https://img.icons8.com/fluency/48/000000/microphone.png" alt="Spoken English" class="skill-logo">
+              Spoken English
+            </li>
+            <li class="skill-item">
+              <img src="https://img.icons8.com/fluency/48/000000/lock-2.png" alt="Confidentiality" class="skill-logo">
+              Confidentiality
+            </li>
+            <li class="skill-item">
+              <img src="https://img.icons8.com/fluency/48/000000/ms-excel.png" alt="Spreadsheets" class="skill-logo">
+              Spreadsheets
+            </li>
+            <li class="skill-item">
+              <img src="https://img.icons8.com/fluency/48/000000/training.png" alt="Training" class="skill-logo">
+              Training
+            </li>
+            <li class="skill-item">
+              <img src="https://img.icons8.com/fluency/48/000000/business.png" alt="Business Analysis" class="skill-logo">
+              Business Analysis
+            </li>
+            <li class="skill-item">
+              <img src="https://img.icons8.com/fluency/48/000000/adobe-photoshop.png" alt="Adobe Photoshop" class="skill-logo">
+              Adobe Photoshop
+            </li>
+            <li class="skill-item">
+              <img src="https://img.icons8.com/fluency/48/000000/data-configuration.png" alt="Data Analysis" class="skill-logo">
+              Data Analysis
+            </li>
+            <li class="skill-item">
+              <img src="https://img.icons8.com/fluency-systems-filled/48/000000/financial-growth.png" alt="Financial Analysis" class="skill-logo">
+              Financial Analysis
+            </li>
+            <li class="skill-item">
+              <img src="https://img.icons8.com/fluency-systems-filled/48/000000/advertising.png" alt="Advertising" class="skill-logo">
+              Advertising
+            </li>
+            <li class="skill-item">
+              <img src="https://img.icons8.com/fluency-systems-filled/48/000000/finance.png" alt="Finance" class="skill-logo">
+              Finance
+            </li>
+            <li class="skill-item">
+              <img src="https://img.icons8.com/fluency/48/000000/project-management.png" alt="Project Management" class="skill-logo">
+              Project Management
+            </li>
+            <li class="skill-item">
+              <img src="https://img.icons8.com/fluency-systems-filled/48/000000/brainstorm.png" alt="Problem Solving" class="skill-logo">
+              Problem Solving
+            </li>
+            <li class="skill-item">
+              <img src="https://img.icons8.com/fluency-systems-filled/48/000000/leadership.png" alt="Leadership" class="skill-logo">
+              Leadership
+            </li>
+            <li class="skill-item">
+              <img src="https://img.icons8.com/fluency/48/000000/communication.png" alt="Communication" class="skill-logo">
+              Communication
+            </li>
+            <li class="skill-item">
+              <img src="https://img.icons8.com/fluency-systems-filled/48/000000/idea.png" alt="Research Skills" class="skill-logo">
+              Research Skills
+            </li>
+            <li class="skill-item">
+              <img src="https://img.icons8.com/fluency/48/000000/accounting.png" alt="Account Management" class="skill-logo">
+              Account Management
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Projects Section (Expanded) -->
+    <section class="projects">
+      <h2>Projects</h2>
+      <div class="project-item">
+        <h3>Wellness Chat Bot</h3>
+        <p><strong>Description:</strong> An intelligent chatbot that provides wellness tips and mental health support. It uses natural language processing to understand queries and deliver personalized advice.</p>
+        <p><strong>Technologies:</strong> Python, NLP libraries, Machine Learning frameworks.</p>
+        <p><strong>Your Role:</strong> Developed the core logic, integrated NLP features, and performed user testing for improved accuracy.</p>
+        <p><a href="https://example.com/project1" target="_blank">View Project</a></p>
+      </div>
+      <div class="project-item">
+        <h3>Heartfelt Moments</h3>
+        <p><strong>Description:</strong> A web application for sharing personal stories and memorable experiences, fostering a community of empathy and connection.</p>
+        <p><strong>Technologies:</strong> JavaScript, HTML, CSS, RESTful API.</p>
+        <p><strong>Your Role:</strong> Designed the user interface, implemented interactive features, and ensured responsive design.</p>
+        <p><a href="https://example.com/project2" target="_blank">View Project</a></p>
+      </div>
+      <div class="project-item">
+        <h3>Farmers Website</h3>
+        <p><strong>Description:</strong> A dynamic website aimed at supporting local farmers by showcasing their products and services while providing valuable business resources.</p>
+        <p><strong>Technologies:</strong> Java, SQL, modern web development techniques.</p>
+        <p><strong>Your Role:</strong> Led project planning, managed database integration, and optimized the website for performance and usability.</p>
+        <p><a href="https://example.com/project3" target="_blank">View Project</a></p>
+      </div>
+    </section>
+    
+    <!-- Contact Section (Enhanced) -->
+    <section class="contact">
+      <h2>Get in touch</h2>
+      <p>If you'd like to connect with me or learn more about my projects, please fill out the contact form below or reach out using the provided links.</p>
+      <form action="https://example.com/contact" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required aria-label="Your Name">
+        <input type="email" name="email" placeholder="Your Email" required aria-label="Your Email">
+        <textarea name="message" placeholder="Your Message" rows="5" required aria-label="Your Message"></textarea>
+        <input type="submit" value="Send Message">
+      </form>
+      <p>Alternatively, connect with me on <a href="https://www.linkedin.com/in/mohammad-aslam-713017251" target="_blank">LinkedIn</a> or check out my <a href="https://github.com/Xcaptainind" target="_blank">GitHub</a>.</p>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+      <p>&copy; <span id="year"></span> Mohammad Aslam</p>
+    </footer>
+  </div>
+  
+  <!-- JavaScript for Enhanced Custom Cursor and Typing Effect -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Custom cursor functionality
+      const cursor = document.querySelector(".custom-cursor");
+      let mouseX = 0, mouseY = 0;
+      let posX = 0, posY = 0;
+      const delay = 0.15; // Adjust for trailing effect
+
+      // Track mouse position
+      document.addEventListener("mousemove", (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+
+      function animateCursor() {
+        posX += (mouseX - posX) * delay;
+        posY += (mouseY - posY) * delay;
+        cursor.style.left = posX + "px";
+        cursor.style.top = posY + "px";
+        requestAnimationFrame(animateCursor);
+      }
+      animateCursor();
+
+      // Hover effects for interactive elements
+      document.querySelectorAll("a, button, input[type='submit']").forEach((elem) => {
+        elem.addEventListener("mouseenter", () => {
+          cursor.style.transform = "translate(-50%, -50%) scale(1.8)";
+          cursor.style.borderColor = "var(--hover-border-color)";
+          cursor.style.backgroundColor = "var(--hover-bg-color)";
+        });
+        elem.addEventListener("mouseleave", () => {
+          cursor.style.transform = "translate(-50%, -50%) scale(1)";
+          cursor.style.borderColor = "var(--link-color)";
+          cursor.style.backgroundColor = "transparent";
+        });
+      });
+
+      // Typing text effect
+      const typingElement = document.getElementById("typing");
+      const texts = [
+        " Innovative Problem Solver",
+        "Tech Enthusiast",
+        " Developer",
+        "Passionate Learner",
+        "Team Player",
+        "Creative Thinker",
+        "IT and Cyber Security Enthusiast"
+      ];
+      let textIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+      const typingSpeed = 180; // Milliseconds per character
+      const erasingSpeed = 120; // Milliseconds per character when deleting
+      const newTextDelay = 1900; // Delay between texts
+
+      function type() {
+        const currentText = texts[textIndex];
+        if (!isDeleting) {
+          typingElement.textContent = currentText.substring(0, charIndex + 1);
+          charIndex++;
+          if (charIndex === currentText.length) {
+            isDeleting = true;
+            setTimeout(type, newTextDelay);
+          } else {
+            setTimeout(type, typingSpeed);
+          }
+        } else {
+          typingElement.textContent = currentText.substring(0, charIndex - 1);
+          charIndex--;
+          if (charIndex === 0) {
+            isDeleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+            setTimeout(type, typingSpeed);
+          } else {
+            setTimeout(type, erasingSpeed);
+          }
+        }
+      }
+      type();
+    });
+    // Update footer year dynamically
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
