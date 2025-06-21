@@ -17,6 +17,21 @@
   <!-- Google Fonts for Lato -->
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    @media screen and (max-width:320px) {
+      body {
+        font-size: 14px;
+      }
+      nav.main-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        border-width: 100px;
+        padding: 15px 0;
+      }
+      nav.main-nav li {
+        padding: 15px 0;
+        margin-bottom: 10px;
+      }
+    }
     :root {
       --text-color: #e0e0e0;
       --link-color: #bb86fc;
@@ -49,8 +64,7 @@
     }
     /* Navigation Styles (original) */
     nav.main-nav {
-      z-index: 100;
-      height: 60px;
+
       display: flex;
       align-content: center;
       justify-content: space-between;
@@ -255,7 +269,6 @@
       content: "";
       position: absolute;
       width: 6px;
-      height: 6px;
       background-color: var(--link-color);
       border-radius: 50%;
       top: 50%;
@@ -263,51 +276,21 @@
       transform: translate(-50%, -50%);
       transition: background-color 0.3s ease;
     }
-    /* Responsive Styles */
-    @media (max-width: 768px) {
-      body {
-        max-width: 90vw;
-      }
-      nav.main-nav ul {
-        flex-direction: column;
-      }
-      nav.main-nav li {
-        margin-bottom: 10px;
-      }
-      .header h1 {
-        font-size: 28px;
-      }
-      .header p {
-        font-size: 16px;
-      }
-      .header a {
-        padding: 8px 16px;
-      }
-      .about, .skills, .projects, .contact {
-        padding: 10px;
-      }
-    }
     /* Original .pic Styles */
     .pic {
-      position: absolute;
-      top: 340px;
-      right: 200px;
-      border: 1px solid #3700b3;
-      z-index: 2;
+      position: center;
+    min-height: auto;
+      width: 100%;
+      
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .pic:hover {
-      transform: scale(1.5);
-      box-shadow: 10px 10px 10px rgba(225, 39, 39, 0.854);
-      cursor: pointer;
-      z-index: 3;
-    }
+  
   </style>
 </head>
 <body>
   <!-- Background Video -->
   <video class="background-video" autoplay muted loop poster="../Pictures/logo.png">
-    <source src="3141210-hd_1920_1080_25fps.mp4" type="video/mp4">
+    <source src="./3141210-uhd_3840_2160_25fps.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   
@@ -330,12 +313,13 @@
     <!-- Header Section -->
     <header class="header">
       <div class="container">
+         <div class="pic">
+          <img height="100px" width="200px" src="./WhatsApp Image 2025-03-01 at 20.13.41_7165bec0.jpg" alt="Mohammad Aslam">
+        </div>
         <h1>Mohammad Aslam</h1>
         <h2 id="typing" style="color: aliceblue; text-shadow: 5px 5px 5px rgba(0, 0, 255, 0.516);"></h2>
         <p>2nd-year BTech student in Computer Science Engineering at RV Institute of Technology, Guntur</p>
-        <div class="pic">
-          <img height="100px" width="200px" src="WhatsApp Image 2025-03-01 at 20.13.41_7165bec0.jpg" alt="Mohammad Aslam">
-        </div>
+       
         <p>Passionate about leveraging technology to drive innovation</p>
         <a href="https://www.linkedin.com/in/mohammad-aslam-713017251" target="_blank">Connect with me on LinkedIn</a>
       </div>
