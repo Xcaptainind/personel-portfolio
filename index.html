@@ -489,7 +489,7 @@
     <section class="contact">
       <h2>Get in touch</h2>
       <p>If you'd like to connect with me or learn more about my projects, please fill out the contact form below or reach out using the provided links.</p>
-      <form method="POST" accept-charset="UTF-8" id="form" action="">
+      <form method="POST" action="https://getform.io/f/axoygzgb" accept-charset="UTF-8" id="form">
         <input type="text" name="name" placeholder="Your Name" required aria-label="Your Name">
         <input type="email" name="email" placeholder="Your Email" required aria-label="Your Email">
         <textarea name="message" placeholder="Your Message" rows="5" required aria-label="Your Message"></textarea>
@@ -585,6 +585,31 @@
       }
       type();
     });
+// get api
+  const form = document.getElementById("form");
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+      if (response.ok) {
+        alert("Message sent successfully!");
+        form.reset();
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("There was an error submitting the form.");
+    }
+  });
+
     // Update footer year dynamically
     document.getElementById('year').textContent = new Date().getFullYear();
 
